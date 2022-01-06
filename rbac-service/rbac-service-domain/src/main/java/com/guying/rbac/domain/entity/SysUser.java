@@ -1,11 +1,13 @@
 package com.guying.rbac.domain.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.Data;
 
 /**
  * sys_user
+ *
  * @author CODE POTER
  */
 @Data
