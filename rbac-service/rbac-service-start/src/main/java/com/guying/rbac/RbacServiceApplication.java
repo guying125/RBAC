@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = {"com.guying.rbac"})
 @MapperScan("com.guying.rbac.repository")
 public class RbacServiceApplication {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SpringApplication.run(RbacServiceApplication.class, args);
     }
 }

@@ -1,5 +1,5 @@
 project:
-  name: start
+  name: rbac-pms
 
 server:
   port: 8080
@@ -35,3 +35,10 @@ spring:
 # 是否启用Swagger
 swagger:
   enabled: true
+
+#logging:
+#  level:
+#    root: warn
+#    com.guying.rbac.repository: trace
+#  pattern:
+#    console: '%p%m%n'
