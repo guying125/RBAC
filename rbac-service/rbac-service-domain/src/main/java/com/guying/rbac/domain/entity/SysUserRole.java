@@ -1,13 +1,13 @@
 package com.guying.rbac.domain.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Data;
-
 /**
  * sys_user_role
+ *
  * @author CODE POTER
  */
 @Data
@@ -15,8 +15,7 @@ public class SysUserRole implements Serializable {
     /**
      * 用户角色ID
      */
-    @TableId
-    private Long usrRoleId;
+    private Long id;
 
     /**
      * 用户ID
