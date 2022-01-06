@@ -8,8 +8,8 @@
  */
 package com.guying.rbac.domain.user.domainservice.impl;
 
+import com.guying.rbac.domain.entity.SysUser;
 import com.guying.rbac.domain.user.domainservice.UserDomainService;
-import com.guying.rbac.domain.user.entity.User;
 import com.guying.rbac.domain.user.gateway.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +31,9 @@ public class UserDomainServiceImpl implements UserDomainService {
     private UserRepository userRepository;
 
     @Override
-    public List<User> select() {
+    public List<SysUser> select() {
         log.info("开始查询=========================");
-        List<User> users = userRepository.select();
+        List<SysUser> users = userRepository.select();
         log.info("输出查询结果：{}", users);
         return users;
     }

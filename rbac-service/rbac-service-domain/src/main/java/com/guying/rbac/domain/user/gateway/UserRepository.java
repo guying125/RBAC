@@ -8,7 +8,7 @@
  */
 package com.guying.rbac.domain.user.gateway;
 
-import com.guying.rbac.domain.user.entity.User;
+import com.guying.rbac.domain.entity.SysUser;
 
 import java.util.List;
 
@@ -20,5 +20,5 @@ import java.util.List;
  * @date 2022-01-04 00:35 星期二
  */
 public interface UserRepository {
-    List<User> select();
+    List<SysUser> select();
 }

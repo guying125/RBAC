@@ -8,8 +8,8 @@
  */
 package com.guying.rbac.test;
 
+import com.guying.rbac.domain.entity.SysUser;
 import com.guying.rbac.domain.user.domainservice.UserDomainService;
-import com.guying.rbac.domain.user.entity.User;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class UserDomainServiceImplTest {
 
     @Test
     public void select() {
-        List<User> users = userDomainService.select();
+        List<SysUser> users = userDomainService.select();
         Assertions.assertEquals(5, users.size());
         System.out.println(users);
     }

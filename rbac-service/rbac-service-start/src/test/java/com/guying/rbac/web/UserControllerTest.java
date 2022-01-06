@@ -8,7 +8,7 @@
  */
 package com.guying.rbac.web;
 
-import com.guying.rbac.domain.user.entity.User;
+import com.guying.rbac.domain.entity.SysUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +23,8 @@ class UserControllerTest {
 
     @Test
     void selectList() {
-        List<User> users = userController.select();
-        Assertions.assertEquals(5, users.size());
+        List<SysUser> users = userController.select();
+        Assertions.assertEquals(8, users.size());
         System.out.println(users);
     }
 }

@@ -8,7 +8,7 @@
  */
 package com.guying.rbac.web;
 
-import com.guying.rbac.domain.user.entity.User;
+import com.guying.rbac.domain.entity.SysUser;
 import com.guying.rbac.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +31,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/select")
-    public List<User> select() {
+    public List<SysUser> select() {
         return userService.select();
     }
 }

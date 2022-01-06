@@ -8,8 +8,7 @@
  */
 package com.guying.rbac.repository;
 
-import com.guying.rbac.domain.user.entity.User;
-import com.guying.rbac.domain.user.entity.User22;
+import com.guying.rbac.domain.entity.SysUser;
 import com.guying.rbac.domain.user.gateway.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,19 +26,15 @@ import java.util.List;
 @Slf4j
 @Component
 public class UserRepositoryImpl implements UserRepository {
-    @Autowired
-    private UserMapper userMapper;
 
     @Autowired
     private SysUserMapper sysUserMapper;
 
 
     @Override
-    public List<User> select() {
-        List<User> users = userMapper.selectList(null);
+    public List<SysUser> select() {
+        List<SysUser> users = sysUserMapper.selectList(null);
         log.info("mp结果：[{}]", users);
-        List<User22> select = sysUserMapper.select();
-        log.info("m结果：[{}]", select);
         return users;
     }
 }

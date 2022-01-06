@@ -1,8 +1,7 @@
 package com.guying.rbac.dto.event;
 
 /**
- * @author niexiaolong
- * @date 2019/4/16
+ * @author CODE POTER
  */
 public class DomainEventConstant {
 
