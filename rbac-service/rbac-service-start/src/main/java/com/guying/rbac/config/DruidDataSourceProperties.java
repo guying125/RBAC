@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *
  * @author CODE POTER
  * @version 1.0
- * @date 2020-07-22 03:08 星期三
  */
 @Data
 @ConfigurationProperties(prefix = "spring.datasource.druid")

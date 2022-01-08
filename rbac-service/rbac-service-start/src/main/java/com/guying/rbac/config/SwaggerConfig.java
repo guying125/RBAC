@@ -1,10 +1,10 @@
 /*
  * 修改说明：
- * ==============   ===============     =================================
- *      操作          用户                  日期
- * ==============   ===============     =================================
- *      新增          CODE POTER          2020-07-18 10:47 星期六
- * ==============   ===============     =================================
+ * ==============   ===============
+ *      操作          用户
+ * ==============   ===============
+ *      新增          CODE POTER
+ * ==============   ===============
  */
 package com.guying.rbac.config;
 
@@ -33,7 +33,6 @@ import java.util.List;
  *
  * @author CODE POTER
  * @version 1.0
- * @date 2020-07-18 10:47 星期六
  */
 @Configuration
 @EnableSwagger2
@@ -51,7 +50,7 @@ public class SwaggerConfig {
     public Docket createRestApi() {
         // 添加请求参数，我们这里把token作为请求头部参数传入后端
         ParameterBuilder parameterBuilder = new ParameterBuilder();
-        List<Parameter>  parameters       = new ArrayList<>();
+        List<Parameter> parameters = new ArrayList<>();
         parameterBuilder.name("token")
                         .description("令牌")
                         .modelRef(new ModelRef("string"))

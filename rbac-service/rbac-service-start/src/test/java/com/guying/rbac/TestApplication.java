@@ -1,7 +1,6 @@
 package com.guying.rbac;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
 
 public class TestApplication {
 

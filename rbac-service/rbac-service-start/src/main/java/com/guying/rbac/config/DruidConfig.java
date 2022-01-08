@@ -21,7 +21,6 @@ import java.sql.SQLException;
  *
  * @author CODE POTER
  * @version 1.0
- * @date 2020-07-22 03:11 星期三
  */
 @Configuration
 @EnableConfigurationProperties({DruidDataSourceProperties.class})
