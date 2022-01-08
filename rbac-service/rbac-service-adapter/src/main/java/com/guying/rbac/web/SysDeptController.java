@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 描述：配置
+ * 描述：机构
  *
  * @author CODE POTER
  * @version 1.0
  */
 @Slf4j
 @RestController
-@RequestMapping("config")
-public class SysConfigController {
-
+@RequestMapping("dept")
+public class SysDeptController {
 }

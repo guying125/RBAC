@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 描述：配置
+ * 描述：日志
  *
  * @author CODE POTER
  * @version 1.0
  */
 @Slf4j
 @RestController
-@RequestMapping("config")
-public class SysConfigController {
-
+@RequestMapping("log")
+public class SysLogController {
 }
