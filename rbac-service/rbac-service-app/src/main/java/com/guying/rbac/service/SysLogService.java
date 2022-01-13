@@ -6,18 +6,13 @@
  *      新增          CODE POTER
  * ==============   ===============
  */
-package com.guying.rbac.user.service;
-
-import com.guying.rbac.domain.entity.SysUser;
-
-import java.util.List;
+package com.guying.rbac.service;
 
 /**
- * 描述：
+ * 描述：日志
  *
  * @author CODE POTER
  * @version 1.0
  */
-public interface SysUserService {
-    List<SysUser> findAll();
+public interface SysLogService {
 }

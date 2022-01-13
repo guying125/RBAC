@@ -23,9 +23,9 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+    <spring-boot.version>2.5.8</spring-boot.version>
     <cola.components.version>4.0.1</cola.components.version>
-    <swagger.version>2.9.2</swagger.version>
+    <swagger.version>3.0.0</swagger.version>
     <mysql.version>5.1.47</mysql.version>
     <druid.version>1.1.23</druid.version>
     <log4j.version>2.17.0</log4j.version>
@@ -33,6 +33,7 @@
     <commonslang3.version>3.12.0</commonslang3.version>
     <fastjson.version>1.2.55</fastjson.version>
     <mybatisplus.version>3.1.0</mybatisplus.version>
+    <jjwt.version>0.9.1</jjwt.version>
   </properties>
 
   <modules>
@@ -180,6 +181,21 @@
         <version>${mybatisplus.version}</version>
       </dependency>
       <!-- Misc End -->
+      <dependency>
+        <groupId>dev.zhengxiang</groupId>
+        <artifactId>kaptcha</artifactId>
+        <version>2.3.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
