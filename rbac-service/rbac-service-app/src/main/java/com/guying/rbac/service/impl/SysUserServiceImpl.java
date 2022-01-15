@@ -10,6 +10,7 @@ package com.guying.rbac.service.impl;
 
 import com.guying.rbac.domain.domainservice.SysUserDomainService;
 import com.guying.rbac.domain.entity.SysUser;
+import com.guying.rbac.dto.UserRequest;
 import com.guying.rbac.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,15 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Set<String> findPermissions(String usrNam) {
         return null;
+    }
+
+    @Override
+    public boolean save(UserRequest userRequest) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(List<UserRequest> userRequestList) {
+        return false;
     }
 }

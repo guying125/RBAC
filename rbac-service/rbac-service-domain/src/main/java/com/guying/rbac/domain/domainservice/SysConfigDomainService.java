@@ -19,13 +19,15 @@ import java.util.List;
  * @version 1.0
  */
 public interface SysConfigDomainService {
-    boolean save();
+    boolean insert(SysConfig sysConfig);
 
     boolean delete();
 
-    boolean update();
+    boolean update(SysConfig sysConfig);
 
     List<SysConfig> findPage();
 
     List<SysConfig> findByLabel();
+
+    boolean deleteById(Long id, String lstUpdBy);
 }

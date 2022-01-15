@@ -25,7 +25,7 @@ public interface SysConfigService {
 
     boolean delete(List<ConfigRequest> configRequestList);
 
-    boolean update(ConfigRequest configRequest);
+    boolean delete(ConfigRequest configRequest);
 
     List<ConfigDTO> findPage(PageQuery pageQuery);
 

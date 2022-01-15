@@ -11,6 +11,7 @@ package com.guying.rbac.web;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.PageQuery;
 import com.alibaba.cola.dto.Response;
+import com.guying.rbac.consts.ResponseErrorInfo;
 import com.guying.rbac.dto.MenuDTO;
 import com.guying.rbac.dto.RoleDTO;
 import com.guying.rbac.dto.RoleMenuRequest;
@@ -18,6 +19,7 @@ import com.guying.rbac.dto.RoleRequest;
 import com.guying.rbac.service.SysRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -39,15 +41,46 @@ public class SysRoleController {
     @PostMapping("/save")
     public Response save(@RequestBody RoleRequest roleRequest) {
         log.info("角色——保存角色");
-
-        return Response.buildSuccess();
+        try {
+            boolean success = sysRoleService.save(roleRequest);
+            if (success) {
+                log.info("角色——保存角色-成功");
+                return Response.buildSuccess();
+            } else {
+                log.error("角色——保存角色-失败");
+                return Response.buildFailure(ResponseErrorInfo.SAVE_FAILURE.getCode(),
+                                             ResponseErrorInfo.SAVE_FAILURE.getMessage());
+            }
+        } catch (Exception ex) {
+            log.error("角色——保存角色-失败");
+            return Response.buildFailure(ResponseErrorInfo.SAVE_FAILURE2.getCode(),
+                                         ResponseErrorInfo.SAVE_FAILURE2.getMessage());
+        }
     }
 
     @PostMapping("/delete")
     public Response delete(@RequestBody List<RoleRequest> roleRequestList) {
         log.info("角色——删除角色");
-
-        return Response.buildSuccess();
+        if (CollectionUtils.isEmpty(roleRequestList)) {
+            log.error("列表为空");
+            return Response.buildFailure(ResponseErrorInfo.DELETE_REQUEST_EMPTY.getCode(),
+                                         ResponseErrorInfo.DELETE_REQUEST_EMPTY.getMessage());
+        }
+        try {
+            boolean success = sysRoleService.delete(roleRequestList);
+            if (success) {
+                log.info("角色——删除角色-成功");
+                return Response.buildSuccess();
+            } else {
+                log.error("角色——删除角色-失败");
+                return Response.buildFailure(ResponseErrorInfo.DELETE_FAILURE.getCode(),
+                                             ResponseErrorInfo.DELETE_FAILURE.getMessage());
+            }
+        } catch (Exception ex) {
+            log.error("角色——删除角色-失败");
+            return Response.buildFailure(ResponseErrorInfo.DELETE_FAILURE2.getCode(),
+                                         ResponseErrorInfo.DELETE_FAILURE2.getMessage());
+        }
     }
 
     @PostMapping("/findPage")

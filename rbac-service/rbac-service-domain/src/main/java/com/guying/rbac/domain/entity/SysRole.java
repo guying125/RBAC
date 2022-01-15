@@ -1,6 +1,7 @@
 package com.guying.rbac.domain.entity;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author CODE POTER
  */
+@Accessors(chain = true)
 @Data
 public class SysRole implements Serializable {
     /**

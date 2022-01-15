@@ -8,6 +8,10 @@
  */
 package com.guying.rbac.service;
 
+import com.guying.rbac.dto.RoleRequest;
+
+import java.util.List;
+
 /**
  * 描述：角色
  *
@@ -15,4 +19,7 @@ package com.guying.rbac.service;
  * @version 1.0
  */
 public interface SysRoleService {
+    boolean save(RoleRequest roleRequest);
+
+    boolean delete(List<RoleRequest> roleRequestList);
 }

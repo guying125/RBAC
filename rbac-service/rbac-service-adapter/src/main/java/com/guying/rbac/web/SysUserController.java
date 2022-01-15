@@ -12,6 +12,7 @@ import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.PageQuery;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
+import com.guying.rbac.consts.ResponseErrorInfo;
 import com.guying.rbac.domain.entity.SysUser;
 import com.guying.rbac.dto.PermissionDTO;
 import com.guying.rbac.dto.RoleDTO;
@@ -20,6 +21,7 @@ import com.guying.rbac.dto.UserRequest;
 import com.guying.rbac.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -47,22 +49,46 @@ public class SysUserController {
     @PostMapping("/save")
     public Response save(@RequestBody UserRequest userRequest) {
         log.info("用户——保存用户");
-
-        return Response.buildSuccess();
+        try {
+            boolean success = sysUserService.save(userRequest);
+            if (success) {
+                log.info("用户——保存用户-成功");
+                return Response.buildSuccess();
+            } else {
+                log.error("用户——保存用户-失败");
+                return Response.buildFailure(ResponseErrorInfo.SAVE_FAILURE.getCode(),
+                                             ResponseErrorInfo.SAVE_FAILURE.getMessage());
+            }
+        } catch (Exception ex) {
+            log.error("用户——保存用户-失败");
+            return Response.buildFailure(ResponseErrorInfo.SAVE_FAILURE2.getCode(),
+                                         ResponseErrorInfo.SAVE_FAILURE2.getMessage());
+        }
     }
 
     @PostMapping("/delete")
     public Response delete(@RequestBody List<UserRequest> userRequestList) {
         log.info("用户——删除用户");
-
-        return Response.buildSuccess();
-    }
-
-    @PostMapping("/update")
-    public Response update(@RequestBody UserRequest userRequest) {
-        log.info("用户——维护用户");
-
-        return Response.buildSuccess();
+        if (CollectionUtils.isEmpty(userRequestList)) {
+            log.error("列表为空");
+            return Response.buildFailure(ResponseErrorInfo.DELETE_REQUEST_EMPTY.getCode(),
+                                         ResponseErrorInfo.DELETE_REQUEST_EMPTY.getMessage());
+        }
+        try {
+            boolean success = sysUserService.delete(userRequestList);
+            if (success) {
+                log.info("用户——删除用户-成功");
+                return Response.buildSuccess();
+            } else {
+                log.error("用户——删除用户-失败");
+                return Response.buildFailure(ResponseErrorInfo.DELETE_FAILURE.getCode(),
+                                             ResponseErrorInfo.DELETE_FAILURE.getMessage());
+            }
+        } catch (Exception ex) {
+            log.error("用户——删除用户-失败");
+            return Response.buildFailure(ResponseErrorInfo.DELETE_FAILURE2.getCode(),
+                                         ResponseErrorInfo.DELETE_FAILURE2.getMessage());
+        }
     }
 
     @PostMapping("/findPage")

@@ -6,20 +6,13 @@
  *      新增          CODE POTER
  * ==============   ===============
  */
-package com.guying.rbac.service;
-
-import com.guying.rbac.dto.DeptRequest;
-
-import java.util.List;
+package com.guying.rbac.domain.gateway;
 
 /**
- * 描述：机构
+ * 描述：
  *
  * @author CODE POTER
  * @version 1.0
  */
-public interface SysDeptService {
-    boolean save(DeptRequest deptRequest);
-
-    boolean delete(List<DeptRequest> deptRequestList);
+public interface SysDeptRepository {
 }

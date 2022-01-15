@@ -8,6 +8,10 @@
  */
 package com.guying.rbac.service;
 
+import com.guying.rbac.dto.MenuRequest;
+
+import java.util.List;
+
 /**
  * 描述：菜单
  *
@@ -15,4 +19,7 @@ package com.guying.rbac.service;
  * @version 1.0
  */
 public interface SysMenuService {
+    boolean save(MenuRequest menuRequest);
+
+    boolean delete(List<MenuRequest> menuRequestList);
 }

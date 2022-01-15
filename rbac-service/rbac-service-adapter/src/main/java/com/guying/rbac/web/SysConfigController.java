@@ -81,27 +81,6 @@ public class SysConfigController {
         }
     }
 
-    @PostMapping("/update")
-    public Response update(@RequestBody ConfigRequest configRequest) {
-        log.info("系统配置——维护系统配置");
-
-        try {
-            boolean success = sysConfigService.update(configRequest);
-            if (success) {
-                log.info("系统配置——维护系统配置-成功");
-                return Response.buildSuccess();
-            } else {
-                log.error("系统配置——维护系统配置-失败");
-                return Response.buildFailure(ResponseErrorInfo.UPDATE_FAILURE.getCode(),
-                                             ResponseErrorInfo.UPDATE_FAILURE.getMessage());
-            }
-        } catch (Exception ex) {
-            log.error("系统配置——维护系统配置-失败");
-            return Response.buildFailure(ResponseErrorInfo.UPDATE_FAILURE2.getCode(),
-                                         ResponseErrorInfo.UPDATE_FAILURE2.getMessage());
-        }
-    }
-
     @PostMapping("/findPage")
     public MultiResponse<ConfigDTO> findPage(@RequestBody PageQuery pageQuery) {
         log.info("系统配置——分页查询");

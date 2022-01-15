@@ -22,8 +22,7 @@ import java.util.function.Consumer;
  * @version 1.0
  */
 public class SqlBatchActionUtil {
-    private SqlBatchActionUtil() {
-    }
+    private SqlBatchActionUtil() { }
 
     public static final Integer BATCH_SIZE = 500;
 
