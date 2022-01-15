@@ -8,6 +8,12 @@
  */
 package com.guying.rbac.service;
 
+import com.alibaba.cola.dto.PageQuery;
+import com.guying.rbac.dto.ConfigDTO;
+import com.guying.rbac.dto.ConfigRequest;
+
+import java.util.List;
+
 /**
  * 描述：配置
  *
@@ -15,4 +21,13 @@ package com.guying.rbac.service;
  * @version 1.0
  */
 public interface SysConfigService {
+    boolean save(ConfigRequest configRequest);
+
+    boolean delete(List<ConfigRequest> configRequestList);
+
+    boolean update(ConfigRequest configRequest);
+
+    List<ConfigDTO> findPage(PageQuery pageQuery);
+
+    List<ConfigDTO> findByLabel(String label);
 }
