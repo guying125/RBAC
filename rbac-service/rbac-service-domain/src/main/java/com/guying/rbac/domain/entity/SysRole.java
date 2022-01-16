@@ -45,12 +45,12 @@ public class SysRole implements Serializable {
     private LocalDateTime crtTim;
 
     /**
-     * 更新人
+     * 最近一次更新人（在更新时将该字段进行更新）
      */
     private String lstUpdBy;
 
     /**
-     * 更新时间
+     * 最近一次更新时间（在更新时将该字段进行更新）
      */
     private LocalDateTime lstUpdTim;
 
