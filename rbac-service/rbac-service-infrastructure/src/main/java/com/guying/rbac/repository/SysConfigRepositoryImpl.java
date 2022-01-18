@@ -8,11 +8,15 @@
  */
 package com.guying.rbac.repository;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.guying.rbac.domain.entity.SysConfig;
 import com.guying.rbac.domain.gateway.SysConfigRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * 描述：
@@ -40,5 +44,22 @@ public class SysConfigRepositoryImpl implements SysConfigRepository {
     public int deleteById(SysConfig sysConfig) {
         // 做逻辑删除
         return sysConfigMapper.updateById(sysConfig);
+    }
+
+    @Override
+    public SysConfig selectById(Long id) {
+        return sysConfigMapper.selectById(id);
+    }
+
+    @Override
+    public SysConfig selectByValue(String value, String... status) {
+        QueryWrapper<SysConfig> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("value", value).in("del_flg", status);
+
+        List<SysConfig> sysConfigList = sysConfigMapper.selectList(queryWrapper);
+        if (!CollectionUtils.isEmpty(sysConfigList)) {
+            return sysConfigList.get(0);
+        }
+        return null;
     }
 }

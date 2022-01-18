@@ -23,4 +23,7 @@ public interface SysConfigRepository {
 
     int deleteById(SysConfig sysConfig);
 
+    SysConfig selectById(Long id);
+
+    SysConfig selectByValue(String value, String... status);
 }

@@ -21,7 +21,7 @@ import java.util.List;
 public interface SysConfigDomainService {
     boolean insert(SysConfig sysConfig);
 
-    boolean delete();
+    boolean deleteById(Long id, String lstUpdBy);
 
     boolean update(SysConfig sysConfig);
 
@@ -29,5 +29,4 @@ public interface SysConfigDomainService {
 
     List<SysConfig> findByLabel();
 
-    boolean deleteById(Long id, String lstUpdBy);
 }

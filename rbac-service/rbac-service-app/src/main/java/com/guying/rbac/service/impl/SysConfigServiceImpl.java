@@ -80,8 +80,14 @@ public class SysConfigServiceImpl implements SysConfigService {
 
     @Override
     public boolean delete(List<ConfigRequest> configRequestList) {
-        SqlBatchActionUtil.doBatch(sqlSessionFactory, configRequestList, SqlBatchActionUtil.BATCH_SIZE, this::delete);
-        return sysConfigDomainService.delete();
+        try {
+            SqlBatchActionUtil.doBatch(sqlSessionFactory, configRequestList, SqlBatchActionUtil.BATCH_SIZE,
+                                       this::delete);
+            return true;
+        } catch (Exception ex) {
+            log.error("删除失败：{}", ex.getMessage());
+            return false;
+        }
     }
 
     @Override

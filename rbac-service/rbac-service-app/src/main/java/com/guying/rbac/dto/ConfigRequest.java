@@ -9,6 +9,7 @@
 package com.guying.rbac.dto;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
  * @author CODE POTER
  * @version 1.0
  */
+@Accessors(chain = true)
 @Data
 public class ConfigRequest extends DTO {
     /**
@@ -74,9 +76,4 @@ public class ConfigRequest extends DTO {
      * 备注信息
      */
     private String remarks;
-
-    /**
-     * 是否删除（DELETED-已删除，NORMAL-正常）
-     */
-    private String delFlg;
 }
